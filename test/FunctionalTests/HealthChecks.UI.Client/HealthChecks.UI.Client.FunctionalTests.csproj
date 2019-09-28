@@ -23,8 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Diagnostics.HealthChecks\Diagnostics.HealthChecks.csproj" />
-    <ProjectReference Include="..\..\src\HealthChecks.UI.Client\HealthChecks.UI.Client.csproj" />
+    <ProjectReference Include="..\..\..\src\Diagnostics.HealthChecks\Diagnostics.HealthChecks.csproj" />
+    <ProjectReference Include="..\..\..\src\HealthChecks.UI.Client\HealthChecks.UI.Client.csproj" />
     <ProjectReference Include="..\Common\Common.csproj" />
   </ItemGroup>
 

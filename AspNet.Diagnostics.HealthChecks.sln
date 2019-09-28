@@ -8,13 +8,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6D5F9F3F-EAA
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{DB96614D-B72A-44C8-9658-7852E3F4F796}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Diagnostics.HelthChecks.Tests", "test\Diagnostics.HelthChecks\Diagnostics.HelthChecks.Tests.csproj", "{EF14539A-FD6C-4C77-A1B4-946FCCBFDF4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Diagnostics.HelthChecks.FunctionalTests", "test\FunctionalTests\Diagnostics.HelthChecks\Diagnostics.HelthChecks.FunctionalTests.csproj", "{EF14539A-FD6C-4C77-A1B4-946FCCBFDF4B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthChecks.UI.Client", "src\HealthChecks.UI.Client\HealthChecks.UI.Client.csproj", "{DB890024-BF10-48AF-8608-60B02923397A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthChecks.UI.Client.Tests", "test\HealthChecks.UI.Client\HealthChecks.UI.Client.Tests.csproj", "{67B2BB74-47DE-4159-B79D-4823B933C0A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthChecks.UI.Client.FunctionalTests", "test\FunctionalTests\HealthChecks.UI.Client\HealthChecks.UI.Client.FunctionalTests.csproj", "{67B2BB74-47DE-4159-B79D-4823B933C0A9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "test\Common\Common.csproj", "{97F6837C-5F8D-4A2F-B888-F9DE560BE9EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "test\FunctionalTests\Common\Common.csproj", "{97F6837C-5F8D-4A2F-B888-F9DE560BE9EC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FunctionalTests", "FunctionalTests", "{0164458F-DF06-4E02-8850-A5CBF9EDD66B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{47D35788-D1C0-4076-8543-190A1A7498A5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Diagnostics.HelthChecks.UnitTests", "test\UnitTests\Diagnostics.HelthChecks\Diagnostics.HelthChecks.UnitTests.csproj", "{AA114643-D604-478A-A4AE-DA122ECD902C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,16 +48,23 @@ Global
 		{97F6837C-5F8D-4A2F-B888-F9DE560BE9EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97F6837C-5F8D-4A2F-B888-F9DE560BE9EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97F6837C-5F8D-4A2F-B888-F9DE560BE9EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA114643-D604-478A-A4AE-DA122ECD902C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA114643-D604-478A-A4AE-DA122ECD902C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA114643-D604-478A-A4AE-DA122ECD902C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA114643-D604-478A-A4AE-DA122ECD902C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4CE3CA72-2BB6-41F2-B04C-9C7F80F7C32B} = {6D5F9F3F-EAA0-4BDE-B740-952583251857}
-		{EF14539A-FD6C-4C77-A1B4-946FCCBFDF4B} = {DB96614D-B72A-44C8-9658-7852E3F4F796}
+		{EF14539A-FD6C-4C77-A1B4-946FCCBFDF4B} = {0164458F-DF06-4E02-8850-A5CBF9EDD66B}
 		{DB890024-BF10-48AF-8608-60B02923397A} = {6D5F9F3F-EAA0-4BDE-B740-952583251857}
-		{67B2BB74-47DE-4159-B79D-4823B933C0A9} = {DB96614D-B72A-44C8-9658-7852E3F4F796}
-		{97F6837C-5F8D-4A2F-B888-F9DE560BE9EC} = {DB96614D-B72A-44C8-9658-7852E3F4F796}
+		{67B2BB74-47DE-4159-B79D-4823B933C0A9} = {0164458F-DF06-4E02-8850-A5CBF9EDD66B}
+		{97F6837C-5F8D-4A2F-B888-F9DE560BE9EC} = {0164458F-DF06-4E02-8850-A5CBF9EDD66B}
+		{0164458F-DF06-4E02-8850-A5CBF9EDD66B} = {DB96614D-B72A-44C8-9658-7852E3F4F796}
+		{47D35788-D1C0-4076-8543-190A1A7498A5} = {DB96614D-B72A-44C8-9658-7852E3F4F796}
+		{AA114643-D604-478A-A4AE-DA122ECD902C} = {47D35788-D1C0-4076-8543-190A1A7498A5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9A70C1B6-9F90-4607-BCD6-F0E614BDE672}
