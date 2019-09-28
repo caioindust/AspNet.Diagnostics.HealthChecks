@@ -26,7 +26,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\Diagnostics.HealthChecks\Diagnostics.HealthChecks.csproj" />
+      <ProjectReference Include="..\..\..\src\Diagnostics.HealthChecks\Diagnostics.HealthChecks.csproj" />
     </ItemGroup>
 
 </Project>
