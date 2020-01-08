@@ -104,7 +104,7 @@ namespace Microsoft.AspNet.Builder
             UseHealthChecksOwin(app, serviceProvider, path, port, default);
             return app;
         }
-       
+
         /// <summary>
         /// Adds a middleware that provides health check status.
         /// </summary>
@@ -137,7 +137,7 @@ namespace Microsoft.AspNet.Builder
             UseHealthChecksOwin(app, serviceProvider, path, port, options);
             return app;
         }
-      
+
         private static void UseHealthChecksOwin(IAppBuilder app, IServiceProvider serviceProvider, PathString path, int? port, HealthCheckOptions healthCheckOptions)
         {
             // NOTE: we explicitly don't use Map here because it's really common for multiple health
@@ -149,7 +149,7 @@ namespace Microsoft.AspNet.Builder
             // https://github.com/aspnet/Diagnostics/issues/512
             // https://github.com/aspnet/Diagnostics/issues/514
 
-            Func<IOwinContext, bool> predicate = ctx =>
+            bool predicate(IOwinContext ctx)
             {
                 return
 
@@ -165,10 +165,10 @@ namespace Microsoft.AspNet.Builder
                         // Ex: /Foo/ == /Foo (true)
                         // Ex: /Foo/Bar == /Foo (false)
                         (ctx.Request.Path.StartsWithSegments(path, out var remaining) && string.IsNullOrEmpty(remaining.Value)));
-            };
+            }
 
             var healthCheckService = serviceProvider.GetService<HealthCheckService>();
-            
+
             app.MapWhen(predicate, b => b.Use<OwinHealthCheckMiddleware>(Options.Create(healthCheckOptions ?? new HealthCheckOptions()), healthCheckService));
         }
     }

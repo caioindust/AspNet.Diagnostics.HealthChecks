@@ -25,13 +25,8 @@ namespace Microsoft.AspNet.Diagnostics.HealthChecks
                 throw new ArgumentNullException(nameof(healthCheckOptions));
             }
 
-            if (healthCheckService == null)
-            {
-                throw new ArgumentNullException(nameof(healthCheckService));
-            }
-
             _healthCheckOptions = healthCheckOptions.Value;
-            _healthCheckService = healthCheckService;
+            _healthCheckService = healthCheckService ?? throw new ArgumentNullException(nameof(healthCheckService));
         }
 
         ///// <summary>
@@ -41,7 +36,10 @@ namespace Microsoft.AspNet.Diagnostics.HealthChecks
         ///// <returns></returns>
         public override Task Invoke(IOwinContext context)
         {
-            if (context == null) { throw new ArgumentNullException(nameof(context)); }
+            if (context == null)
+            {
+                throw new ArgumentNullException(nameof(context));
+            }
 
             return InvokeInternal(context);
         }
