@@ -10,7 +10,8 @@ namespace Common.Tests
     public abstract class Startup
     {
         private readonly IServiceCollection _services;
-        public Startup()
+
+        protected Startup()
         {
             _services = new ServiceCollection()
                 .AddLogging(logging => logging.AddConsole());
@@ -23,6 +24,7 @@ namespace Common.Tests
         }
 
         public abstract void AddServices(IServiceCollection services);
+
         public virtual void SetupUseHealthChecks(IAppBuilder app, IServiceProvider servicesProvider)
         {
             app.UseHealthChecks(servicesProvider, new PathString("/hc"));

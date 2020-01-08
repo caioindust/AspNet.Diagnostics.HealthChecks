@@ -1,10 +1,6 @@
 ﻿using Microsoft.Owin.Hosting;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Diagnostics.HelthChecks
 {
@@ -13,7 +9,7 @@ namespace Diagnostics.HelthChecks
         public string Url { get; }
 
         private readonly IDisposable _webContext;
-        private readonly HttpClient _client;        
+        private readonly HttpClient _client;
 
         public AppBuilder(string url)
         {

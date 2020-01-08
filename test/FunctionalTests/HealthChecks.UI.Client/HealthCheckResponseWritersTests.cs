@@ -33,15 +33,15 @@ namespace Diagnostics.HelthChecks
                 var response = app.Get($"{app.Url}/hc");
                 var content = app.GetContent(response);
 
-                UIHealthReport uiReport =
+                var uiReport =
                     response.StatusCode.Equals(HttpStatusCode.OK) ?
-                        uiReport = JsonConvert.DeserializeObject<UIHealthReport>(content, settings) :
+                        JsonConvert.DeserializeObject<UIHealthReport>(content, settings) :
                         null;
 
                 uiReport.Should().NotBeNull();
                 response.StatusCode.Should().Be(HttpStatusCode.OK);
                 uiReport.Status.Should().Be(UIHealthStatus.Healthy);
-                uiReport.Entries.Should().NotBeEmpty();                     
+                uiReport.Entries.Should().NotBeEmpty();
             }
         }
 
