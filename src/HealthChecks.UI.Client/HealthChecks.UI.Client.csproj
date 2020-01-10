@@ -5,6 +5,7 @@
 		<LangVersion>latest</LangVersion>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+		<PackageId>ApsNet.HealthChecks.UI.Client</PackageId>
 	</PropertyGroup>
 
 	<ItemGroup>

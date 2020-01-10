@@ -5,6 +5,8 @@
 		<LangVersion>latest</LangVersion>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+		<PackageId>ApsNet.Diagnostics.HealthChecks</PackageId>
+		<Version>1.0.1</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
