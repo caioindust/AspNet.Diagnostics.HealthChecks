@@ -75,8 +75,6 @@ namespace Microsoft.AspNet.Diagnostics.HealthChecks
             {
                 await _healthCheckOptions.ResponseWriter(context, result);
             }
-
-            await Next.Invoke(context);
         }
     }
 }
