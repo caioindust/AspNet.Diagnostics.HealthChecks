@@ -8,7 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6D5F9F3F-EAA
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{DB96614D-B72A-44C8-9658-7852E3F4F796}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Diagnostics.HelthChecks.FunctionalTests", "test\FunctionalTests\Diagnostics.HelthChecks\Diagnostics.HelthChecks.FunctionalTests.csproj", "{EF14539A-FD6C-4C77-A1B4-946FCCBFDF4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Diagnostics.HealthChecks.FunctionalTests", "test\FunctionalTests\Diagnostics.HelthChecks\Diagnostics.HealthChecks.FunctionalTests.csproj", "{EF14539A-FD6C-4C77-A1B4-946FCCBFDF4B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthChecks.UI.Client", "src\HealthChecks.UI.Client\HealthChecks.UI.Client.csproj", "{DB890024-BF10-48AF-8608-60B02923397A}"
 EndProject
@@ -20,7 +20,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FunctionalTests", "Function
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{47D35788-D1C0-4076-8543-190A1A7498A5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Diagnostics.HelthChecks.UnitTests", "test\UnitTests\Diagnostics.HelthChecks\Diagnostics.HelthChecks.UnitTests.csproj", "{AA114643-D604-478A-A4AE-DA122ECD902C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Diagnostics.HealthChecks.UnitTests", "test\UnitTests\Diagnostics.HelthChecks\Diagnostics.HealthChecks.UnitTests.csproj", "{AA114643-D604-478A-A4AE-DA122ECD902C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FC04E9F6-90AC-4486-8BE1-768DD2093045}"
 	ProjectSection(SolutionItems) = preProject

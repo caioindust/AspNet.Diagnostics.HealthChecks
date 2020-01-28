@@ -12,7 +12,7 @@ using System;
 using System.Net;
 using Xunit;
 
-namespace Diagnostics.HelthChecks
+namespace Diagnostics.HealthChecks
 {
     public class HealthCheckResponseWritersTests
     {
@@ -62,10 +62,10 @@ namespace Diagnostics.HelthChecks
                     });
             }
 
-            public override void SetupUseHealthChecks(IAppBuilder app, IServiceProvider servicesProvider)
+            public override void SetupUseHealthChecks(IAppBuilder app, IServiceProvider serviceProvider)
             {
                 app.UseHealthChecks(
-                    servicesProvider,
+                    serviceProvider,
                     new PathString("/hc"),
                     new Microsoft.AspNet.Diagnostics.HealthChecks.HealthCheckOptions
                     {

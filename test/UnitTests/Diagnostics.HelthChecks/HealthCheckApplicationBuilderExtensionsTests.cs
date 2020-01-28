@@ -4,7 +4,7 @@ using Microsoft.Owin;
 using System;
 using Xunit;
 
-namespace Diagnostics.HelthChecks
+namespace Diagnostics.HealthChecks
 {
     public class HealthCheckApplicationBuilderExtensionsTests
     {
