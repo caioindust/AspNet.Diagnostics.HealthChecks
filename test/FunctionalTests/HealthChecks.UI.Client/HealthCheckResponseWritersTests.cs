@@ -19,30 +19,28 @@ namespace Diagnostics.HelthChecks
         [Fact]
         public void HealthChecksWithhHealthCheckOptions()
         {
-            using (var app = new AppBuilder<StartupWithhHealthCheckOptions>($"http://localhost:{Port.Next()}"))
+            using var app = new AppBuilder<StartupWithhHealthCheckOptions>($"http://localhost:{Port.Next()}");
+            var settings = new JsonSerializerSettings()
             {
-                var settings = new JsonSerializerSettings()
-                {
-                    ContractResolver = new CamelCasePropertyNamesContractResolver(),
-                    NullValueHandling = NullValueHandling.Ignore,
-                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
-                };
+                ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                NullValueHandling = NullValueHandling.Ignore,
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+            };
 
-                settings.Converters.Add(new StringEnumConverter());
+            settings.Converters.Add(new StringEnumConverter());
 
-                var response = app.Get($"{app.Url}/hc");
-                var content = app.GetContent(response);
+            var response = app.Get($"{app.Url}/hc");
+            var content = app.GetContent(response);
 
-                var uiReport =
-                    response.StatusCode.Equals(HttpStatusCode.OK) ?
-                        JsonConvert.DeserializeObject<UIHealthReport>(content, settings) :
-                        null;
+            var uiReport =
+                response.StatusCode.Equals(HttpStatusCode.OK) ?
+                    JsonConvert.DeserializeObject<UIHealthReport>(content, settings) :
+                    null;
 
-                uiReport.Should().NotBeNull();
-                response.StatusCode.Should().Be(HttpStatusCode.OK);
-                uiReport.Status.Should().Be(UIHealthStatus.Healthy);
-                uiReport.Entries.Should().NotBeEmpty();
-            }
+            uiReport.Should().NotBeNull();
+            response.StatusCode.Should().Be(HttpStatusCode.OK);
+            uiReport.Status.Should().Be(UIHealthStatus.Healthy);
+            uiReport.Entries.Should().NotBeEmpty();
         }
 
         #region [ Arrange ]

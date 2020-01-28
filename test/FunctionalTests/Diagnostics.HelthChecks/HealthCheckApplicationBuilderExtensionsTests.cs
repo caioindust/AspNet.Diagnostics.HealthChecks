@@ -1,4 +1,5 @@
-using Common.Tests;
+﻿using Common.Tests;
+using FluentAssertions;
 using Microsoft.AspNet.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
@@ -9,7 +10,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net;
 using Xunit;
-using FluentAssertions;
 
 namespace Diagnostics.HelthChecks
 {
@@ -19,47 +19,45 @@ namespace Diagnostics.HelthChecks
         [ClassData(typeof(HealthChecksTestData))]
         public void HealthChecks<T>(AppBuilder<T> app, string expected)
         {
-            var contents = app.GetContent($"{app.Url}/hc");            
+            var contents = app.GetContent($"{app.Url}/hc");
             contents.Should().Be(expected);
         }
 
         [Fact]
         public void HealthChecksWithHealthCheckOptions()
         {
-            using (var app = new AppBuilder<StartupWithhHealthCheckOptions>($"http://localhost:{Port.Next()}"))
-            {
-                var response1 = app.Get($"{app.Url}/hc-tag-predicate1");
-                var content1 = app.GetContent(response1);
+            using var app = new AppBuilder<StartupWithhHealthCheckOptions>($"http://localhost:{Port.Next()}");
+            var response1 = app.Get($"{app.Url}/hc-tag-predicate1");
+            var content1 = app.GetContent(response1);
 
-                var response2 = app.Get($"{app.Url}/hc-tag-predicate2");
-                var content2 = app.GetContent(response2);
-                
-                response1.StatusCode.Should().Be(HttpStatusCode.OK);
-                content1.Should().Be("Healthy");
+            var response2 = app.Get($"{app.Url}/hc-tag-predicate2");
+            var content2 = app.GetContent(response2);
 
-                response2.StatusCode.Should().Be(HttpStatusCode.ServiceUnavailable);
-                content2.Should().Be("Unhealthy");
-            }
+            response1.StatusCode.Should().Be(HttpStatusCode.OK);
+            content1.Should().Be("Healthy");
+
+            response2.StatusCode.Should().Be(HttpStatusCode.ServiceUnavailable);
+            content2.Should().Be("Unhealthy");
         }
 
         [Fact]
         public void HealthChecksWithPort()
         {
-            using (var app = new AppBuilder<StartupWithPort>($"http://localhost:12345"))
-            {
-                var response = app.Get($"{app.Url}/hc");
-                var content = app.GetContent(response);
+            using var app = new AppBuilder<StartupWithPort>($"http://localhost:12345");
+            var response = app.Get($"{app.Url}/hc");
+            var content = app.GetContent(response);
 
-                response.StatusCode.Should().Be(HttpStatusCode.OK);
-                content.Should().Be("Healthy");
-            }
+            response.StatusCode.Should().Be(HttpStatusCode.OK);
+            content.Should().Be("Healthy");
         }
-      
+
         #region [ Arrange ]
 
         public class StartupWithhHealthCheckOptions : Startup
         {
-            public StartupWithhHealthCheckOptions() : base() { }
+            public StartupWithhHealthCheckOptions() : base()
+            {
+            }
 
             public override void AddServices(IServiceCollection services)
             {
@@ -104,7 +102,9 @@ namespace Diagnostics.HelthChecks
 
         public class StartupWithPort : Startup
         {
-            public StartupWithPort() : base() { }
+            public StartupWithPort() : base()
+            {
+            }
 
             public override void AddServices(IServiceCollection services)
             {
@@ -136,7 +136,9 @@ namespace Diagnostics.HelthChecks
 
             public class StartupHealthy : Startup
             {
-                public StartupHealthy() : base() { }
+                public StartupHealthy() : base()
+                {
+                }
 
                 public override void AddServices(IServiceCollection services) =>
                     services
@@ -146,7 +148,9 @@ namespace Diagnostics.HelthChecks
 
             public class StartupUnhealthy : Startup
             {
-                public StartupUnhealthy() : base() { }
+                public StartupUnhealthy() : base()
+                {
+                }
 
                 public override void AddServices(IServiceCollection services) =>
                     services
@@ -156,7 +160,9 @@ namespace Diagnostics.HelthChecks
 
             public class StartupDegraded : Startup
             {
-                public StartupDegraded() : base() { }
+                public StartupDegraded() : base()
+                {
+                }
 
                 public override void AddServices(IServiceCollection services) =>
                     services
@@ -164,6 +170,7 @@ namespace Diagnostics.HelthChecks
                         .AddCheck("Degraded", () => Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult.Degraded());
             }
         }
+
         #endregion [ Arrange ]
     }
 }

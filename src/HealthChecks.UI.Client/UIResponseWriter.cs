@@ -11,9 +11,10 @@ namespace AspNet.HealthChecks.UI.Client
     /*
      * https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks/blob/master/src/HealthChecks.UI.Client/UIResponseWriter.cs
      */
+
     public static class UIResponseWriter
     {
-        const string DEFAULT_CONTENT_TYPE = "application/json";
+        private const string DEFAULT_CONTENT_TYPE = "application/json";
 
         public static Task WriteHealthCheckUIResponse(IOwinContext context, HealthReport result) => WriteHealthCheckUIResponse(context, result, null);
 

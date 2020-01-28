@@ -1,4 +1,4 @@
-using FluentAssertions;
+﻿using FluentAssertions;
 using Microsoft.AspNet.Builder;
 using Microsoft.Owin;
 using System;
@@ -7,7 +7,7 @@ using Xunit;
 namespace Diagnostics.HelthChecks
 {
     public class HealthCheckApplicationBuilderExtensionsTests
-    {     
+    {
         [Fact]
         public void HealthCheckApplicationBuilderExtensionsWithAppNull()
         {

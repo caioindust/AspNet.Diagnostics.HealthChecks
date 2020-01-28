@@ -1,14 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFramework>net461</TargetFramework>
-		<LangVersion>latest</LangVersion>
-		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-		<PackageId>ApsNet.HealthChecks.UI.Client</PackageId>
-	</PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net461</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+        <PackageId>AspNet.HealthChecks.UI.Client</PackageId>
+        <Copyright>Copyright © 2020</Copyright>
+        <PackageTags>AspNet Health Checks UI Client</PackageTags>
+        <Authors>CaioInDust, Julio Rovesta</Authors>
+        <Product>AspNet.HealthChecks.UI.Client</Product>
+        <Company>CaioInDust</Company>
+        <Description>- This project is a version for ASP Net Full Framework for creating HealthChecks, based on Xabaril AspNetCore.Diagnostics.HealthChecks project.</Description>
+        <PackageProjectUrl>https://github.com/caioindust/AspNet.Diagnostics.HealthChecks</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/caioindust/AspNet.Diagnostics.HealthChecks</RepositoryUrl>
+        <PackageLicenseExpression></PackageLicenseExpression>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>        
+    </PropertyGroup>
 
-	<ItemGroup>
+    <ItemGroup>
         <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.0.0" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.0.0" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.0.0" />
@@ -17,10 +27,16 @@
         <PackageReference Include="Microsoft.Net.Http.Headers" Version="2.2.0" />
         <PackageReference Include="Microsoft.Owin" Version="4.0.1" />
         <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
-	</ItemGroup>
+    </ItemGroup>
 
-	<ItemGroup>
-	  <Reference Include="System.Web" />
-	</ItemGroup>
+    <ItemGroup>
+        <Reference Include="System.Web" />
+    </ItemGroup>
 
+    <ItemGroup>
+      <None Include="..\..\LICENSE">
+        <Pack>True</Pack>
+        <PackagePath></PackagePath>
+      </None>
+    </ItemGroup>
 </Project>

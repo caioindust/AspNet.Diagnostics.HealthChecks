@@ -28,6 +28,7 @@ namespace Diagnostics.HelthChecks
              response.Content.ReadAsStringAsync().ConfigureAwait(false).GetAwaiter().GetResult();
 
         #region IDisposable Support
+
         private bool disposed = false;
 
         protected virtual void Dispose(bool disposing)
@@ -42,7 +43,6 @@ namespace Diagnostics.HelthChecks
             }
 
             disposed = true;
-
         }
 
         public void Dispose()
@@ -55,6 +55,7 @@ namespace Diagnostics.HelthChecks
         {
             Dispose(false);
         }
-        #endregion
+
+        #endregion IDisposable Support
     }
 }

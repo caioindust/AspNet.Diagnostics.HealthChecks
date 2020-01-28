@@ -54,8 +54,8 @@ namespace Microsoft.AspNet.Diagnostics.HealthChecks
         /// the middleware will apply headers to the HTTP response that instruct clients to avoid caching.
         /// </para>
         /// <para>
-        /// If the value is <c>false</c> the health check middleware will set or override the 
-        /// <c>Cache-Control</c>, <c>Expires</c>, and <c>Pragma</c> headers to prevent response caching. If the value 
+        /// If the value is <c>false</c> the health check middleware will set or override the
+        /// <c>Cache-Control</c>, <c>Expires</c>, and <c>Pragma</c> headers to prevent response caching. If the value
         /// is <c>true</c> the health check middleware will not modify the cache headers of the response.
         /// </para>
         /// </remarks>
