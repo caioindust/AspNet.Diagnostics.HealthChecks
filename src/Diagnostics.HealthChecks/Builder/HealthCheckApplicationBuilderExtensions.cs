@@ -86,8 +86,8 @@ namespace Microsoft.AspNet.Builder
         /// <para>
         /// If <paramref name="path"/> is set to <c>null</c> or the empty string then the health check middleware
         /// will ignore the URL path and process all requests on the specified port. If <paramref name="path"/> is
-        /// set to a non-empty value, the health check middleware will process requests with a URL that matches the 
-        /// provided value of <paramref name="path"/> case-insensitively, allowing for an extra trailing slash ('/') 
+        /// set to a non-empty value, the health check middleware will process requests with a URL that matches the
+        /// provided value of <paramref name="path"/> case-insensitively, allowing for an extra trailing slash ('/')
         /// character.
         /// </para>
         /// <para>
@@ -117,8 +117,8 @@ namespace Microsoft.AspNet.Builder
         /// <para>
         /// If <paramref name="path"/> is set to <c>null</c> or the empty string then the health check middleware
         /// will ignore the URL path and process all requests on the specified port. If <paramref name="path"/> is
-        /// set to a non-empty value, the health check middleware will process requests with a URL that matches the 
-        /// provided value of <paramref name="path"/> case-insensitively, allowing for an extra trailing slash ('/') 
+        /// set to a non-empty value, the health check middleware will process requests with a URL that matches the
+        /// provided value of <paramref name="path"/> case-insensitively, allowing for an extra trailing slash ('/')
         /// character.
         /// </para>
         /// </remarks>
@@ -159,7 +159,7 @@ namespace Microsoft.AspNet.Builder
                     // We allow you to listen on all URLs by providing the empty PathString.
                     (!path.HasValue ||
 
-                        // If you do provide a PathString, want to handle all of the special cases that 
+                        // If you do provide a PathString, want to handle all of the special cases that
                         // StartsWithSegments handles, but we also want it to have exact match semantics.
                         //
                         // Ex: /Foo/ == /Foo (true)

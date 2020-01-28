@@ -46,10 +46,10 @@ namespace Microsoft.AspNet.Diagnostics.HealthChecks
 
         public async Task InvokeInternal(IOwinContext context)
         {
-            // Get results            
+            // Get results
             var result = await _healthCheckService.CheckHealthAsync(_healthCheckOptions?.Predicate, context.Request.CallCancelled);
 
-            // Map status to response code - this is customizable via options. 
+            // Map status to response code - this is customizable via options.
             if (!_healthCheckOptions.ResultStatusCodes.TryGetValue(result.Status, out var statusCode))
             {
                 var message =
