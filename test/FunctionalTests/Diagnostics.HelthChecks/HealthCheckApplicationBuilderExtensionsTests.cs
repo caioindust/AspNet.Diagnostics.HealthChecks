@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using System.Net;
 using Xunit;
 
-namespace Diagnostics.HelthChecks
+namespace Diagnostics.HealthChecks
 {
     public class HealthCheckApplicationBuilderExtensionsTests
     {
@@ -66,11 +66,11 @@ namespace Diagnostics.HelthChecks
                     .AddCheck("Healthy2", () => HealthCheckResult.Unhealthy(), new[] { "TagPredicate02" });
             }
 
-            public override void SetupUseHealthChecks(IAppBuilder app, IServiceProvider servicesProvider)
+            public override void SetupUseHealthChecks(IAppBuilder app, IServiceProvider serviceProvider)
             {
                 app
                     .UseHealthChecks(
-                        servicesProvider,
+                        serviceProvider,
                         new PathString("/hc-tag-predicate1"),
                         new Microsoft.AspNet.Diagnostics.HealthChecks.HealthCheckOptions
                         {
@@ -84,7 +84,7 @@ namespace Diagnostics.HelthChecks
                         }
                     )
                     .UseHealthChecks(
-                        servicesProvider,
+                        serviceProvider,
                         new PathString("/hc-tag-predicate2"),
                         new Microsoft.AspNet.Diagnostics.HealthChecks.HealthCheckOptions
                         {
@@ -112,11 +112,11 @@ namespace Diagnostics.HelthChecks
                     .AddCheck("Healthy", () => HealthCheckResult.Healthy());
             }
 
-            public override void SetupUseHealthChecks(IAppBuilder app, IServiceProvider servicesProvider)
+            public override void SetupUseHealthChecks(IAppBuilder app, IServiceProvider serviceProvider)
             {
                 app
                     .UseHealthChecks(
-                        servicesProvider,
+                        serviceProvider,
                         new PathString("/hc"),
                         12345
                     );

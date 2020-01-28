@@ -2,7 +2,7 @@
 using System;
 using System.Net.Http;
 
-namespace Diagnostics.HelthChecks
+namespace Diagnostics.HealthChecks
 {
     public class AppBuilder<T> : IDisposable
     {

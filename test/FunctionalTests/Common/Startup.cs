@@ -25,9 +25,9 @@ namespace Common.Tests
 
         public abstract void AddServices(IServiceCollection services);
 
-        public virtual void SetupUseHealthChecks(IAppBuilder app, IServiceProvider servicesProvider)
+        public virtual void SetupUseHealthChecks(IAppBuilder app, IServiceProvider serviceProvider)
         {
-            app.UseHealthChecks(servicesProvider, new PathString("/hc"));
+            app.UseHealthChecks(serviceProvider, new PathString("/hc"));
         }
     }
 }

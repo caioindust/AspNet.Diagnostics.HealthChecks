@@ -12,7 +12,7 @@
         <Authors>CaioInDust, Julio Rovesta</Authors>
         <Product>AspNet.Diagnostics.HealthChecks</Product>
         <Company>CaioInDust</Company>
-        <Description>- This project is a version for ASP Net Full Framework for creating HealthChecks, based on Xabaril AspNetCore.Diagnostics.HealthChecks project.</Description>        
+        <Description>This project is a version for ASP Net Full Framework for creating HealthChecks, based on Xabaril AspNetCore.Diagnostics.HealthChecks project.</Description>        
         <PackageProjectUrl>https://github.com/caioindust/AspNet.Diagnostics.HealthChecks</PackageProjectUrl>
         <RepositoryUrl>https://github.com/caioindust/AspNet.Diagnostics.HealthChecks</RepositoryUrl>
         <PackageLicenseExpression></PackageLicenseExpression>

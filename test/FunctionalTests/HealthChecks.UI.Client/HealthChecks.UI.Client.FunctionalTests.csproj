@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net461</TargetFramework>
     <IsPackable>false</IsPackable>
-    <RootNamespace>Diagnostics.HelthChecks</RootNamespace>
+    <RootNamespace>Diagnostics.HealthChecks</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

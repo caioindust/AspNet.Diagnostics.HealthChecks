@@ -33,14 +33,14 @@ namespace Microsoft.AspNet.Builder
         /// The health check middleware will use default settings from <see cref="IOptions{HealthCheckOptions}"/>.
         /// </para>
         /// </remarks>
-        public static IAppBuilder UseHealthChecks(this IAppBuilder app, IServiceProvider servicesProvider, PathString path)
+        public static IAppBuilder UseHealthChecks(this IAppBuilder app, IServiceProvider serviceProvider, PathString path)
         {
             if (app == null)
             {
                 throw new ArgumentNullException(nameof(app));
             }
 
-            UseHealthChecksOwin(app, servicesProvider, path, port: null, default);
+            UseHealthChecksOwin(app, serviceProvider, path, port: null, default);
             return app;
         }
 
