@@ -31,6 +31,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthChecks.ConsolidationUris", "src\HealthChecks.ConsolidationUris\HealthChecks.ConsolidationUris.csproj", "{C5DCAF7C-A5AD-4261-85F4-7341D7DAF885}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{AA114643-D604-478A-A4AE-DA122ECD902C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA114643-D604-478A-A4AE-DA122ECD902C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA114643-D604-478A-A4AE-DA122ECD902C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5DCAF7C-A5AD-4261-85F4-7341D7DAF885}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5DCAF7C-A5AD-4261-85F4-7341D7DAF885}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5DCAF7C-A5AD-4261-85F4-7341D7DAF885}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5DCAF7C-A5AD-4261-85F4-7341D7DAF885}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,6 +80,7 @@ Global
 		{0164458F-DF06-4E02-8850-A5CBF9EDD66B} = {DB96614D-B72A-44C8-9658-7852E3F4F796}
 		{47D35788-D1C0-4076-8543-190A1A7498A5} = {DB96614D-B72A-44C8-9658-7852E3F4F796}
 		{AA114643-D604-478A-A4AE-DA122ECD902C} = {47D35788-D1C0-4076-8543-190A1A7498A5}
+		{C5DCAF7C-A5AD-4261-85F4-7341D7DAF885} = {6D5F9F3F-EAA0-4BDE-B740-952583251857}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9A70C1B6-9F90-4607-BCD6-F0E614BDE672}
