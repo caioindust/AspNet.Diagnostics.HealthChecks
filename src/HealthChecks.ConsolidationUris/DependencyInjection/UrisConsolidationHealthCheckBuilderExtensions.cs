@@ -1,20 +1,16 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using HealthChecks.UrisConsolidation;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace HealthChecks.ConsolidationUris.DependencyInjection
+namespace Microsoft.Extensions.DependencyInjection
 {
-
-    public static class ConsolidationUrisHealthCheckBuilderExtensions
+    public static class UrisConsolidationHealthCheckBuilderExtensions
     {
-        const string NAME = "consolidation-uri-group";
+        private const string NAME = "uri-group-consolidation";
 
-               /// <summary>
+        /// <summary>
         /// Add a health check for multiple uri's.
         /// </summary>
         /// <param name="builder">The <see cref="IHealthChecksBuilder"/>.</param>
@@ -25,13 +21,13 @@ namespace HealthChecks.ConsolidationUris.DependencyInjection
         /// the default status of <see cref="HealthStatus.Unhealthy"/> will be reported.
         /// </param>
         /// <param name="tags">A list of tags that can be used to filter sets of health checks. Optional.</param>
-        public static IHealthChecksBuilder AddConsolidationUrlGroup(this IHealthChecksBuilder builder, IEnumerable<Uri> uris, Func<IEnumerable<HealthCheckResult>, HealthCheckResult> consolidation, string name = default, HealthStatus? failureStatus = default, IEnumerable<string> tags = default)
+        public static IHealthChecksBuilder AddUrlGroupConsolidation(this IHealthChecksBuilder builder, IEnumerable<Uri> uris, Func<IEnumerable<HealthCheckResult>, HealthCheckResult> consolidation, string name = default, HealthStatus? failureStatus = default, IEnumerable<string> tags = default)
         {
-            var options = ConsolidationUriHealthCheckOptions.CreateFromUris(uris);
+            var options = UrisConsolidationHealthCheckOptions.CreateFromUris(uris);
 
             return builder.Add(new HealthCheckRegistration(
                 name ?? NAME,
-                sp => new ConsolidationUriHealthCheck(options, consolidation),
+                sp => new UrisConsolidationHealthCheck(options, consolidation),
                 failureStatus,
                 tags));
         }
@@ -48,14 +44,14 @@ namespace HealthChecks.ConsolidationUris.DependencyInjection
         /// the default status of <see cref="HealthStatus.Unhealthy"/> will be reported.
         /// </param>
         /// <param name="tags">A list of tags that can be used to filter sets of health checks. Optional.</param>
-        public static IHealthChecksBuilder AddConsolidationUrlGroup(this IHealthChecksBuilder builder, IEnumerable<Uri> uris, Func<IEnumerable<HealthCheckResult>, HealthCheckResult> consolidation, HttpMethod httpMethod, string name = default, HealthStatus? failureStatus = default, IEnumerable<string> tags = default)
+        public static IHealthChecksBuilder AddUrlGroupConsolidation(this IHealthChecksBuilder builder, IEnumerable<Uri> uris, Func<IEnumerable<HealthCheckResult>, HealthCheckResult> consolidation, HttpMethod httpMethod, string name = default, HealthStatus? failureStatus = default, IEnumerable<string> tags = default)
         {
-            var options = ConsolidationUriHealthCheckOptions.CreateFromUris(uris);
+            var options = UrisConsolidationHealthCheckOptions.CreateFromUris(uris);
             options.UseHttpMethod(httpMethod);
 
             return builder.Add(new HealthCheckRegistration(
                 name ?? NAME,
-                sp => new ConsolidationUriHealthCheck(options, consolidation),
+                sp => new UrisConsolidationHealthCheck(options, consolidation),
                 failureStatus,
                 tags));
         }
@@ -71,17 +67,16 @@ namespace HealthChecks.ConsolidationUris.DependencyInjection
         /// the default status of <see cref="HealthStatus.Unhealthy"/> will be reported.
         /// </param>
         /// <param name="tags">A list of tags that can be used to filter sets of health checks. Optional.</param>
-        public static IHealthChecksBuilder AddConsolidationUrlGroup(this IHealthChecksBuilder builder, Action<ConsolidationUriHealthCheckOptions> uriOptions, Func<IEnumerable<HealthCheckResult>, HealthCheckResult> consolidation, string name = default, HealthStatus? failureStatus = default, IEnumerable<string> tags = default)
+        public static IHealthChecksBuilder AddUrlGroupConsolidation(this IHealthChecksBuilder builder, Action<UrisConsolidationHealthCheckOptions> uriOptions, Func<IEnumerable<HealthCheckResult>, HealthCheckResult> consolidation, string name = default, HealthStatus? failureStatus = default, IEnumerable<string> tags = default)
         {
-            var options = new ConsolidationUriHealthCheckOptions();
+            var options = new UrisConsolidationHealthCheckOptions();
             uriOptions?.Invoke(options);
 
             return builder.Add(new HealthCheckRegistration(
                 name ?? NAME,
-                sp => new ConsolidationUriHealthCheck(options, consolidation),
+                sp => new UrisConsolidationHealthCheck(options, consolidation),
                 failureStatus,
                 tags));
         }
     }
 }
-

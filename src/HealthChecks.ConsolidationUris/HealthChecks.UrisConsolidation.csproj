@@ -1,21 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net461</TargetFramework>
+        <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
         <LangVersion>latest</LangVersion>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
         <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-        <PackageId>AspNet.HealthChecks.ConsolidationUris</PackageId>
+        <PackageId>AspNet.HealthChecks.UrisConsolidation</PackageId>
         <Copyright>Copyright © 2020</Copyright>
-        <PackageTags>AspNet Health Checks UI Client</PackageTags>
+        <PackageTags>AspNet Health Checks Uri Consolidation</PackageTags>
         <Authors>CaioInDust, Julio Rovesta</Authors>
-        <Product>AspNet.HealthChecks.ConsolidationUris</Product>
+        <Product>AspNet.HealthChecks.UrisConsolidation</Product>
         <Company>CaioInDust</Company>
-        <Description>This project is a version for ASP Net Full Framework for creating HealthChecks, based on Xabaril AspNetCore.Diagnostics.HealthChecks project.</Description>
+        <Description>HealthChecks.UrisConsolidation is a simple health check package for Uri groups, with the option of consolidating the result of health checks.</Description>
         <PackageProjectUrl>https://github.com/caioindust/AspNet.Diagnostics.HealthChecks</PackageProjectUrl>
         <RepositoryUrl>https://github.com/caioindust/AspNet.Diagnostics.HealthChecks</RepositoryUrl>
         <PackageLicenseExpression></PackageLicenseExpression>
-        <PackageLicenseFile>LICENSE</PackageLicenseFile>        
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <AssemblyName>HealthChecks.UrisConsolidation</AssemblyName>
+        <RootNamespace>HealthChecks.UrisConsolidation</RootNamespace>
+        <Version>0.0.1</Version>        
     </PropertyGroup>
 
     <ItemGroup>

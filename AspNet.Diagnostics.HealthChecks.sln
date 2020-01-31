@@ -31,7 +31,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthChecks.ConsolidationUris", "src\HealthChecks.ConsolidationUris\HealthChecks.ConsolidationUris.csproj", "{C5DCAF7C-A5AD-4261-85F4-7341D7DAF885}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthChecks.UrisConsolidation", "src\HealthChecks.ConsolidationUris\HealthChecks.UrisConsolidation.csproj", "{C5DCAF7C-A5AD-4261-85F4-7341D7DAF885}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
