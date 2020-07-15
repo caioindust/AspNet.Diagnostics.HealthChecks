@@ -7,7 +7,7 @@ using System;
 
 namespace Common.Tests
 {
-    public abstract class Startup
+    public abstract class Startup : IStartup
     {
         private readonly IServiceCollection _services;
 

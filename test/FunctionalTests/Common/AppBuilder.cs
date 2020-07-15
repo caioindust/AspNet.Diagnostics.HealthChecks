@@ -1,10 +1,11 @@
-﻿using Microsoft.Owin.Hosting;
+﻿using Common.Tests;
+using Microsoft.Owin.Hosting;
 using System;
 using System.Net.Http;
 
 namespace Diagnostics.HealthChecks
 {
-    public class AppBuilder<T> : IDisposable
+    public class AppBuilder<T> : IDisposable where T : IStartup
     {
         public string Url { get; }
 

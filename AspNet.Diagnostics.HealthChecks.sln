@@ -33,6 +33,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthChecks.UrisConsolidation", "src\HealthChecks.ConsolidationUris\HealthChecks.UrisConsolidation.csproj", "{C5DCAF7C-A5AD-4261-85F4-7341D7DAF885}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealthChecks.UrisConsolidation.FunctionalTests", "test\FunctionalTests\HealthChecks.UrisConsolidation\HealthChecks.UrisConsolidation.FunctionalTests.csproj", "{8ECD0184-F3CF-4117-88FB-D682E4E45B72}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,10 @@ Global
 		{C5DCAF7C-A5AD-4261-85F4-7341D7DAF885}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5DCAF7C-A5AD-4261-85F4-7341D7DAF885}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5DCAF7C-A5AD-4261-85F4-7341D7DAF885}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ECD0184-F3CF-4117-88FB-D682E4E45B72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ECD0184-F3CF-4117-88FB-D682E4E45B72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ECD0184-F3CF-4117-88FB-D682E4E45B72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ECD0184-F3CF-4117-88FB-D682E4E45B72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -81,6 +87,7 @@ Global
 		{47D35788-D1C0-4076-8543-190A1A7498A5} = {DB96614D-B72A-44C8-9658-7852E3F4F796}
 		{AA114643-D604-478A-A4AE-DA122ECD902C} = {47D35788-D1C0-4076-8543-190A1A7498A5}
 		{C5DCAF7C-A5AD-4261-85F4-7341D7DAF885} = {6D5F9F3F-EAA0-4BDE-B740-952583251857}
+		{8ECD0184-F3CF-4117-88FB-D682E4E45B72} = {0164458F-DF06-4E02-8850-A5CBF9EDD66B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9A70C1B6-9F90-4607-BCD6-F0E614BDE672}

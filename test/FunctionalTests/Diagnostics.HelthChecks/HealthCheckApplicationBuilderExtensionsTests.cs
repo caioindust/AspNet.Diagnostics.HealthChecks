@@ -17,7 +17,8 @@ namespace Diagnostics.HealthChecks
     {
         [Theory]
         [ClassData(typeof(HealthChecksTestData))]
-        public void HealthChecks<T>(AppBuilder<T> app, string expected)
+        public void HealthChecks<T>(AppBuilder<T> app, string expected) 
+            where T : IStartup
         {
             var contents = app.GetContent($"{app.Url}/hc");
             contents.Should().Be(expected);
@@ -100,16 +101,10 @@ namespace Diagnostics.HealthChecks
             }
         }
 
-        public class StartupWithPort : Startup
+        public class StartupWithPort : Common.Tests.BasicArranges.StartupHealthy
         {
             public StartupWithPort() : base()
             {
-            }
-
-            public override void AddServices(IServiceCollection services)
-            {
-                services.AddHealthChecks()
-                    .AddCheck("Healthy", () => HealthCheckResult.Healthy());
             }
 
             public override void SetupUseHealthChecks(IAppBuilder app, IServiceProvider serviceProvider)
@@ -127,48 +122,12 @@ namespace Diagnostics.HealthChecks
         {
             public IEnumerator<object[]> GetEnumerator()
             {
-                yield return new object[] { new AppBuilder<StartupHealthy>($"http://localhost:{Port.Next()}"), "Healthy" };
-                yield return new object[] { new AppBuilder<StartupUnhealthy>($"http://localhost:{Port.Next()}"), "Unhealthy" };
-                yield return new object[] { new AppBuilder<StartupDegraded>($"http://localhost:{Port.Next()}"), "Degraded" };
+                yield return new object[] { new AppBuilder<Common.Tests.BasicArranges.StartupHealthy>($"http://localhost:{Port.Next()}"), "Healthy" };
+                yield return new object[] { new AppBuilder<Common.Tests.BasicArranges.StartupUnhealthy>($"http://localhost:{Port.Next()}"), "Unhealthy" };
+                yield return new object[] { new AppBuilder<Common.Tests.BasicArranges.StartupDegraded>($"http://localhost:{Port.Next()}"), "Degraded" };
             }
 
-            IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
-
-            public class StartupHealthy : Startup
-            {
-                public StartupHealthy() : base()
-                {
-                }
-
-                public override void AddServices(IServiceCollection services) =>
-                    services
-                        .AddHealthChecks()
-                        .AddCheck("Healthy", () => HealthCheckResult.Healthy());
-            }
-
-            public class StartupUnhealthy : Startup
-            {
-                public StartupUnhealthy() : base()
-                {
-                }
-
-                public override void AddServices(IServiceCollection services) =>
-                    services
-                        .AddHealthChecks()
-                        .AddCheck("Unhealthy", () => HealthCheckResult.Unhealthy());
-            }
-
-            public class StartupDegraded : Startup
-            {
-                public StartupDegraded() : base()
-                {
-                }
-
-                public override void AddServices(IServiceCollection services) =>
-                    services
-                        .AddHealthChecks()
-                        .AddCheck("Degraded", () => Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult.Degraded());
-            }
+            IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();            
         }
 
         #endregion [ Arrange ]
