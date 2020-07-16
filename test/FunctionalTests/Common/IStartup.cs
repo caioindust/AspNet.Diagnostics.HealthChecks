@@ -11,6 +11,6 @@ namespace Common.Tests
 
         void AddServices(IServiceCollection services);
 
-        void SetupUseHealthChecks(IAppBuilder app, IServiceProvider serviceProvider);
+        void Setup(IAppBuilder app, IServiceProvider serviceProvider);
     }
 }

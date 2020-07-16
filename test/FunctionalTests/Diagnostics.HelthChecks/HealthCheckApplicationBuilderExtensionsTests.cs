@@ -12,15 +12,21 @@ using System.Net;
 using Xunit;
 
 namespace Diagnostics.HealthChecks
-{
-    public class HealthCheckApplicationBuilderExtensionsTests
+{    
+    public class HealthCheckApplicationBuilderExtensionsTests: IClassFixture<HttpClientFixtures>
     {
+        private readonly HttpClientFixtures _httpClientFixtures;
+
+        public HealthCheckApplicationBuilderExtensionsTests(HttpClientFixtures httpClientFixtures)
+        {
+            _httpClientFixtures = httpClientFixtures;
+        }
+
         [Theory]
         [ClassData(typeof(HealthChecksTestData))]
-        public void HealthChecks<T>(AppBuilder<T> app, string expected) 
-            where T : IStartup
+        public void HealthChecks<T>(AppBuilder<T> app, string expected)  
         {
-            var contents = app.GetContent($"{app.Url}/hc");
+            var contents = _httpClientFixtures.GetContent($"{app.Url}/hc");
             contents.Should().Be(expected);
         }
 
@@ -28,11 +34,11 @@ namespace Diagnostics.HealthChecks
         public void HealthChecksWithHealthCheckOptions()
         {
             using var app = new AppBuilder<StartupWithhHealthCheckOptions>($"http://localhost:{Port.Next()}");
-            var response1 = app.Get($"{app.Url}/hc-tag-predicate1");
-            var content1 = app.GetContent(response1);
+            var response1 = _httpClientFixtures.Get($"{app.Url}/hc-tag-predicate1");
+            var content1 = _httpClientFixtures.GetContent(response1);
 
-            var response2 = app.Get($"{app.Url}/hc-tag-predicate2");
-            var content2 = app.GetContent(response2);
+            var response2 = _httpClientFixtures.Get($"{app.Url}/hc-tag-predicate2");
+            var content2 = _httpClientFixtures.GetContent(response2);
 
             response1.StatusCode.Should().Be(HttpStatusCode.OK);
             content1.Should().Be("Healthy");
@@ -45,8 +51,8 @@ namespace Diagnostics.HealthChecks
         public void HealthChecksWithPort()
         {
             using var app = new AppBuilder<StartupWithPort>($"http://localhost:12345");
-            var response = app.Get($"{app.Url}/hc");
-            var content = app.GetContent(response);
+            var response = _httpClientFixtures.Get($"{app.Url}/hc");
+            var content = _httpClientFixtures.GetContent(response);
 
             response.StatusCode.Should().Be(HttpStatusCode.OK);
             content.Should().Be("Healthy");
@@ -67,7 +73,7 @@ namespace Diagnostics.HealthChecks
                     .AddCheck("Healthy2", () => HealthCheckResult.Unhealthy(), new[] { "TagPredicate02" });
             }
 
-            public override void SetupUseHealthChecks(IAppBuilder app, IServiceProvider serviceProvider)
+            public override void Setup(IAppBuilder app, IServiceProvider serviceProvider)
             {
                 app
                     .UseHealthChecks(
@@ -107,7 +113,7 @@ namespace Diagnostics.HealthChecks
             {
             }
 
-            public override void SetupUseHealthChecks(IAppBuilder app, IServiceProvider serviceProvider)
+            public override void Setup(IAppBuilder app, IServiceProvider serviceProvider)
             {
                 app
                     .UseHealthChecks(

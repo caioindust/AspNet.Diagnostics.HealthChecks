@@ -13,9 +13,16 @@ using System.Net;
 using Xunit;
 
 namespace Diagnostics.HealthChecks
-{
-    public class HealthCheckResponseWritersTests
+{    
+    public class HealthCheckResponseWritersTests: IClassFixture<HttpClientFixtures>
     {
+        private readonly HttpClientFixtures _httpClientFixtures;
+
+        public HealthCheckResponseWritersTests(HttpClientFixtures httpClientFixtures)
+        {
+            _httpClientFixtures = httpClientFixtures;
+        }
+
         [Fact]
         public void HealthChecksWithhHealthCheckOptions()
         {
@@ -29,8 +36,8 @@ namespace Diagnostics.HealthChecks
 
             settings.Converters.Add(new StringEnumConverter());
 
-            var response = app.Get($"{app.Url}/hc");
-            var content = app.GetContent(response);
+            var response = _httpClientFixtures.Get($"{app.Url}/hc");
+            var content = _httpClientFixtures.GetContent(response);
 
             var uiReport =
                 response.StatusCode.Equals(HttpStatusCode.OK) ?
@@ -62,7 +69,7 @@ namespace Diagnostics.HealthChecks
                     });
             }
 
-            public override void SetupUseHealthChecks(IAppBuilder app, IServiceProvider serviceProvider)
+            public override void Setup(IAppBuilder app, IServiceProvider serviceProvider)
             {
                 app.UseHealthChecks(
                     serviceProvider,

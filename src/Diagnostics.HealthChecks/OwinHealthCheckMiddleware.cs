@@ -44,7 +44,7 @@ namespace Microsoft.AspNet.Diagnostics.HealthChecks
             return InvokeInternal(context);
         }
 
-        public async Task InvokeInternal(IOwinContext context)
+        private async Task InvokeInternal(IOwinContext context)
         {
             // Get results
             var result = await _healthCheckService.CheckHealthAsync(_healthCheckOptions?.Predicate, context.Request.CallCancelled);

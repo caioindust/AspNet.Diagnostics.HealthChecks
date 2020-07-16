@@ -20,12 +20,12 @@ namespace Common.Tests
         public void Configuration(IAppBuilder app)
         {
             AddServices(_services);
-            SetupUseHealthChecks(app, _services.BuildServiceProvider());
+            Setup(app, _services.BuildServiceProvider());
         }
 
         public abstract void AddServices(IServiceCollection services);
 
-        public virtual void SetupUseHealthChecks(IAppBuilder app, IServiceProvider serviceProvider)
+        public virtual void Setup(IAppBuilder app, IServiceProvider serviceProvider)
         {
             app.UseHealthChecks(serviceProvider, new PathString("/hc"));
         }

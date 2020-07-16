@@ -2,32 +2,22 @@
 using Microsoft.Owin.Hosting;
 using System;
 using System.Net.Http;
+using System.Threading;
 
 namespace Diagnostics.HealthChecks
 {
-    public class AppBuilder<T> : IDisposable where T : IStartup
+    public class AppBuilder<T> : IDisposable
     {
         public string Url { get; }
 
         private readonly IDisposable _webContext;
-        private readonly HttpClient _client;
 
         public AppBuilder(string url)
         {
             Url = url;
-            _webContext = WebApp.Start<T>(Url);
-            _client = new HttpClient();
+            _webContext = WebApp.Start<T>(Url);        
         }
-
-        public HttpResponseMessage Get(string requestUri) =>
-            _client.GetAsync(requestUri).ConfigureAwait(false).GetAwaiter().GetResult();
-
-        public string GetContent(string requestUri) =>
-             GetContent(Get(requestUri));
-
-        public string GetContent(HttpResponseMessage response) =>
-             response.Content.ReadAsStringAsync().ConfigureAwait(false).GetAwaiter().GetResult();
-
+      
         #region IDisposable Support
 
         private bool disposed = false;
@@ -39,7 +29,6 @@ namespace Diagnostics.HealthChecks
 
             if (disposing)
             {
-                _client.Dispose();
                 _webContext.Dispose();
             }
 
